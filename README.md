@@ -1,5 +1,5 @@
 # Programação de Sistemas II - Delícias do Dia
-Projeto da disciplina de Programação de Sistemas II feito por:
+Back-Eend do projeto da disciplina de Programação de Sistemas II feito por:
 
 **Integrantes:**
 - Geovanna da Silva Lima - 10420059
