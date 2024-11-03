@@ -1,5 +1,12 @@
 package com.mackenzie.receitas.portal_receitas.config;
 
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
 import com.mackenzie.receitas.portal_receitas.entities.Category;
 import com.mackenzie.receitas.portal_receitas.entities.Ingredient;
 import com.mackenzie.receitas.portal_receitas.entities.Recipe;
@@ -8,12 +15,6 @@ import com.mackenzie.receitas.portal_receitas.repositories.CategoryRepository;
 import com.mackenzie.receitas.portal_receitas.repositories.IngredientRepository;
 import com.mackenzie.receitas.portal_receitas.repositories.RecipeRepository;
 import com.mackenzie.receitas.portal_receitas.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-
-import java.util.Arrays;
 
 @Configuration
 @Profile("test")

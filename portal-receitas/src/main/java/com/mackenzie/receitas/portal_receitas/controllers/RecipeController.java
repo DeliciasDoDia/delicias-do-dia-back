@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(value = "/api", produces = {"application/json"})
-@Tag(name = "api")
+@Tag(name = "Dados de Receitas", description = "Endpoints relacionados a receitas do sistema.")
 public class RecipeController {
 
     private final RecipeService service;
@@ -34,7 +34,7 @@ public class RecipeController {
     }
 
     // CREATE
-    @Operation(summary = "Realiza o cadastro de receitas.", method = "POST")
+    @Operation(summary = "Realiza o cadastro de receitas", method = "POST")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Cadastro de receita realizado com sucesso"),
         @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
@@ -102,7 +102,7 @@ public class RecipeController {
     }
 
     // DELETE
-    @Operation(summary = "Exclui uma receita", method = "DELETE")
+    @Operation(summary = "Exclui uma receita por id", method = "DELETE")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "204", description = "Receita excluída com sucesso"),
         @ApiResponse(responseCode = "404", description = "Receita não encontrada"),

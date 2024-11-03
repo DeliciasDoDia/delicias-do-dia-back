@@ -18,7 +18,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(value = "/api", produces = {"application/json"})
-@Tag(name = "api")
+@Tag(name = "Dados de Ingredientes", description = "Endpoints relacionados aos ingredientes da receita.")
 public class IngredientController {
 
     private final IngredientService service;

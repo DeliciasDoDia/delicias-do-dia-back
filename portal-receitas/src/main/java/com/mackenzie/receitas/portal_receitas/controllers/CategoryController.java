@@ -18,7 +18,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(value = "/api", produces = {"application/json"})
-@Tag(name = "api")
+@Tag(name = "Dados de Categoria", description = "Endpoints relacionados a categorias do sistema.")
 public class CategoryController {
 
     private final CategoryService service;

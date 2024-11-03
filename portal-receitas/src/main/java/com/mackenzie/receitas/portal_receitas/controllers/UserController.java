@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(value = "/api", produces = {"application/json"})
-@Tag(name = "api")
+@Tag(name = "Dados de Usuário", description = "Endpoints relacionados aos Usuários do sistema.")
 public class UserController {
 
     private final UserService service;
@@ -34,6 +34,13 @@ public class UserController {
     }
 
     // CREATE
+    @Operation(summary = "Realiza o cadastro de usuário", method = "POST")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Cadastro de usuário realizado com sucesso"),
+        @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
+        @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+        @ApiResponse(responseCode = "500", description = "Erro ao realizar o cadastro de usuário"),
+    })
     @PostMapping("/users")
     public ResponseEntity<User> create(@RequestBody User user) {
         user = service.save(user);
@@ -70,10 +77,10 @@ public class UserController {
     // UPDATE
     @Operation(summary = "Atualiza os dados do usuário por id", method = "PUT")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Receita atualizada com sucesso"),
-        @ApiResponse(responseCode = "404", description = "Receita não encontrada"),
+        @ApiResponse(responseCode = "200", description = "Usuário atualizado com sucesso"),
+        @ApiResponse(responseCode = "404", description = "Usuário não encontrado"),
         @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
-        @ApiResponse(responseCode = "500", description = "Erro ao atualizar os dados da receita"),
+        @ApiResponse(responseCode = "500", description = "Erro ao atualizar os dados do usuário"),
     })
     @PutMapping("/users/{id}")
     public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user) {
@@ -83,10 +90,10 @@ public class UserController {
     // DELETE
     @Operation(summary = "Exclui um usuário por id", method = "DELETE")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "204", description = "Receita excluída com sucesso"),
-        @ApiResponse(responseCode = "404", description = "Receita não encontrada"),
+        @ApiResponse(responseCode = "204", description = "Usuário excluída com sucesso"),
+        @ApiResponse(responseCode = "404", description = "Usuário não encontrado"),
         @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
-        @ApiResponse(responseCode = "500", description = "Erro ao excluir a receita"),
+        @ApiResponse(responseCode = "500", description = "Erro ao excluir o usuario"),
     })
     @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
