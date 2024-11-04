@@ -1,3 +1,6 @@
+// Geovanna da Silva Lima - 10420059
+// Pedro Henrique Mansano Fernandes - 10388037
+
 package com.mackenzie.receitas.portal_receitas.config;
 
 import java.util.Arrays;
@@ -51,13 +54,13 @@ public class TestConfig implements CommandLineRunner {
         categoryRepository.saveAll(Arrays.asList(cat1, cat2));
 
         Recipe r1 = new Recipe(null, "Frango com Curry", "imageLink",
-                "blablabla", 40, 4, cat1, u2);
+                "blablabla", 40, 4, 2, 3, cat1, u2);
 
         Recipe r2 = new Recipe(null, "Molho pesto", "imageLink",
-                "bla", 15, 2, cat2, u3);
+                "bla", 15, 2, 2, 3, cat2, u3);
 
         Recipe r3 = new Recipe(null, "Molho branco", "imageLink",
-                "bla", 15, 2, cat2, u3);
+                "bla", 15, 2, 2, 4, cat2, u3);
 
         r1.getIngredients().add(i1);
         r2.getIngredients().add(i1);

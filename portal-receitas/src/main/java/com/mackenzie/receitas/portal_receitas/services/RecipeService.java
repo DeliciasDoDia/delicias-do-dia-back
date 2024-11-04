@@ -1,3 +1,6 @@
+// Geovanna da Silva Lima - 10420059
+// Pedro Henrique Mansano Fernandes - 10388037
+
 package com.mackenzie.receitas.portal_receitas.services;
 
 import com.mackenzie.receitas.portal_receitas.entities.Ingredient;
@@ -43,6 +46,10 @@ public class RecipeService {
         entity.setPrepTimeMinutes(recipe.getPrepTimeMinutes());
         entity.setServings(recipe.getServings());
         entity.setCategory(recipe.getCategory());
+        entity.setDifficulty(recipe.getDifficulty());
+        entity.setCost(recipe.getCost());
+        entity.getSteps().clear();
+        entity.getSteps().addAll(recipe.getSteps());
         entity.getIngredients().clear();
         entity.getIngredients().addAll(recipe.getIngredients());
         return repository.save(entity);

@@ -1,5 +1,7 @@
-package com.mackenzie.receitas.portal_receitas.entities;
+// Geovanna da Silva Lima - 10420059
+// Pedro Henrique Mansano Fernandes - 10388037
 
+package com.mackenzie.receitas.portal_receitas.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

@@ -1,12 +1,12 @@
-package com.mackenzie.receitas.portal_receitas.entities;
+// Geovanna da Silva Lima - 10420059
+// Pedro Henrique Mansano Fernandes - 10388037
 
+package com.mackenzie.receitas.portal_receitas.entities;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "recipes")
@@ -22,6 +22,9 @@ public class Recipe implements Serializable {
     private String description;
     private Integer prepTimeMinutes;
     private Integer servings;
+    private Integer difficulty;
+    private Integer cost;
+    private List<String> steps = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -44,7 +47,8 @@ public class Recipe implements Serializable {
 
     public Recipe(Long id, String name, String imageLink,
                   String description, Integer prepTimeMinutes,
-                  Integer servings, Category category, User author) {
+                  Integer servings, Integer difficulty, Integer cost,
+                  Category category, User author) {
         this.id = id;
         this.name = name;
         this.imageUrl = imageLink;
@@ -53,6 +57,8 @@ public class Recipe implements Serializable {
         this.servings = servings;
         this.category = category;
         this.author = author;
+        this.difficulty = difficulty;
+        this.cost = cost;
     }
 
     public Long getId() {
@@ -103,6 +109,16 @@ public class Recipe implements Serializable {
         this.servings = servings;
     }
 
+    public Integer getDifficulty() { return difficulty; }
+
+    public void setDifficulty(Integer difficulty) { this.difficulty = difficulty; }
+
+    public Integer getCost() { return cost; }
+
+    public void setCost(Integer cost) { this.cost = cost; }
+
+    public List<String> getSteps() { return steps; }
+
     public Category getCategory() {
         return category;
     }
@@ -119,9 +135,7 @@ public class Recipe implements Serializable {
         this.author = author;
     }
 
-    public Set<Ingredient> getIngredients() {
-        return ingredients;
-    }
+    public Set<Ingredient> getIngredients() { return ingredients; }
 
     @Override
     public boolean equals(Object o) {
