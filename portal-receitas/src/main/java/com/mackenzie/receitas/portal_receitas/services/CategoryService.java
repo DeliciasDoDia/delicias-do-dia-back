@@ -4,6 +4,7 @@
 package com.mackenzie.receitas.portal_receitas.services;
 
 import com.mackenzie.receitas.portal_receitas.entities.Category;
+import com.mackenzie.receitas.portal_receitas.exceptions.ResourceNotFoundException;
 import com.mackenzie.receitas.portal_receitas.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,6 @@ public class CategoryService {
 
     public Category findById(Long id) {
         Optional<Category> obj = repository.findById(id);
-        return obj.orElse(null);
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }

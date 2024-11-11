@@ -4,6 +4,7 @@
 package com.mackenzie.receitas.portal_receitas.services;
 
 import com.mackenzie.receitas.portal_receitas.entities.Ingredient;
+import com.mackenzie.receitas.portal_receitas.exceptions.ResourceNotFoundException;
 import com.mackenzie.receitas.portal_receitas.repositories.IngredientRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,6 @@ public class IngredientService {
 
     public Ingredient findById(Long id) {
         Optional<Ingredient> obj = repository.findById(id);
-        return obj.orElse(null);
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }
