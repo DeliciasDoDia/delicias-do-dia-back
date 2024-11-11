@@ -7,6 +7,7 @@ import com.mackenzie.receitas.portal_receitas.entities.Recipe;
 import com.mackenzie.receitas.portal_receitas.entities.User;
 import com.mackenzie.receitas.portal_receitas.exceptions.ResourceNotFoundException;
 import com.mackenzie.receitas.portal_receitas.repositories.RecipeRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,25 +44,29 @@ public class RecipeService {
     }
 
     public Recipe update(Long id, Recipe recipe) {
-        Recipe entity = repository.getReferenceById(id);
-        entity.setName(recipe.getName());
-        entity.setImageUrl(recipe.getImageUrl());
-        entity.setDescription(recipe.getDescription());
-        entity.setPrepTimeMinutes(recipe.getPrepTimeMinutes());
-        entity.setServings(recipe.getServings());
-        entity.setCategory(recipe.getCategory());
-        entity.setDifficulty(recipe.getDifficulty());
-        entity.setCost(recipe.getCost());
-        entity.getSteps().clear();
-        entity.getSteps().addAll(recipe.getSteps());
-        entity.getIngredients().clear();
-        entity.getIngredients().addAll(recipe.getIngredients());
-        return repository.save(entity);
+        try {
+            Recipe entity = repository.getReferenceById(id);
+            entity.setName(recipe.getName());
+            entity.setImageUrl(recipe.getImageUrl());
+            entity.setDescription(recipe.getDescription());
+            entity.setPrepTimeMinutes(recipe.getPrepTimeMinutes());
+            entity.setServings(recipe.getServings());
+            entity.setCategory(recipe.getCategory());
+            entity.setDifficulty(recipe.getDifficulty());
+            entity.setCost(recipe.getCost());
+            entity.getSteps().clear();
+            entity.getSteps().addAll(recipe.getSteps());
+            entity.getIngredients().clear();
+            entity.getIngredients().addAll(recipe.getIngredients());
+            return repository.save(entity);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException(id);
+        }
     }
 
     public void delete(Long id) {
         Optional<Recipe> obj = repository.findById(id);
-        if(!obj.isPresent()) throw new ResourceNotFoundException(id);
+        if (!obj.isPresent()) throw new ResourceNotFoundException(id);
         repository.deleteById(id);
     }
 }
