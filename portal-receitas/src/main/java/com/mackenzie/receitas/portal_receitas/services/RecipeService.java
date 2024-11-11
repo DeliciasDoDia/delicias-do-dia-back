@@ -4,6 +4,7 @@
 package com.mackenzie.receitas.portal_receitas.services;
 
 import com.mackenzie.receitas.portal_receitas.entities.Recipe;
+import com.mackenzie.receitas.portal_receitas.entities.User;
 import com.mackenzie.receitas.portal_receitas.exceptions.ResourceNotFoundException;
 import com.mackenzie.receitas.portal_receitas.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
@@ -59,6 +60,8 @@ public class RecipeService {
     }
 
     public void delete(Long id) {
+        Optional<Recipe> obj = repository.findById(id);
+        if(!obj.isPresent()) throw new ResourceNotFoundException(id);
         repository.deleteById(id);
     }
 }

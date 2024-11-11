@@ -4,8 +4,11 @@
 package com.mackenzie.receitas.portal_receitas.services;
 
 import com.mackenzie.receitas.portal_receitas.entities.User;
+import com.mackenzie.receitas.portal_receitas.exceptions.DatabaseException;
 import com.mackenzie.receitas.portal_receitas.exceptions.ResourceNotFoundException;
 import com.mackenzie.receitas.portal_receitas.repositories.UserRepository;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,6 +44,12 @@ public class UserService {
     }
 
     public void delete(Long id) {
+        Optional<User> obj = repository.findById(id);
+        if(!obj.isPresent()) throw new ResourceNotFoundException(id);
+        try {
         repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException(e.getMessage());
+        }
     }
 }
