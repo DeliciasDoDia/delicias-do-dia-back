@@ -85,9 +85,15 @@ public class RecipeController {
         @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
         @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
     })
-    @GetMapping("/recipes/category/{id}")
-    public ResponseEntity<List<Recipe>> findByCategory(@PathVariable long id) {
-        List<Recipe> list = service.findByCategory(id);
+    @GetMapping("/recipes/category/{catName}")
+    public ResponseEntity<List<Recipe>> findByCategory(@PathVariable String catName) {
+        List<Recipe> list = service.findByCategory(catName);
+        return ResponseEntity.ok().body(list);
+    }
+
+    @GetMapping("/recipes/ingredients/{ingName}")
+    public ResponseEntity<List<Recipe>> findByIngredient(@PathVariable String ingName) {
+        List<Recipe> list = service.findByIngredient(ingName);
         return ResponseEntity.ok().body(list);
     }
 

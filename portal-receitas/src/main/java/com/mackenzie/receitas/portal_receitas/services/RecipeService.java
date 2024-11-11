@@ -3,14 +3,12 @@
 
 package com.mackenzie.receitas.portal_receitas.services;
 
-import com.mackenzie.receitas.portal_receitas.entities.Ingredient;
 import com.mackenzie.receitas.portal_receitas.entities.Recipe;
 import com.mackenzie.receitas.portal_receitas.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class RecipeService {
@@ -30,8 +28,12 @@ public class RecipeService {
         return obj.orElse(null);
     }
 
-    public List<Recipe> findByCategory(Long categoryId) {
-        return repository.findByCategory_Id(categoryId);
+    public List<Recipe> findByCategory(String catName) {
+        return repository.findByCategoryNameContainingIgnoreCase(catName);
+    }
+
+    public List<Recipe> findByIngredient(String ingName) {
+        return repository.findByIngredientsNameContainingIgnoreCase(ingName);
     }
 
     public Recipe save(Recipe recipe) {
