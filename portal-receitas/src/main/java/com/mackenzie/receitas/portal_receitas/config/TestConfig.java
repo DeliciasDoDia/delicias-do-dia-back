@@ -54,13 +54,13 @@ public class TestConfig implements CommandLineRunner {
         categoryRepository.saveAll(Arrays.asList(cat1, cat2));
 
         Recipe r1 = new Recipe(null, "Frango com Curry", "imageLink",
-                "blablabla", 40, 4, 2, 3, cat1, u2);
+                "blablabla", 40, 4, 2, 3, cat1, u2, "t");
 
         Recipe r2 = new Recipe(null, "Molho pesto", "imageLink",
-                "bla", 15, 2, 2, 3, cat2, u3);
+                "bla", 15, 2, 2, 3, cat2, u3, "step");
 
         Recipe r3 = new Recipe(null, "Molho branco", "imageLink",
-                "bla", 15, 2, 2, 4, cat2, u3);
+                "bla", 15, 2, 2, 4, cat2, u3, "step");
 
         r1.getIngredients().add(i1);
         r2.getIngredients().add(i1);

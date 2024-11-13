@@ -54,8 +54,7 @@ public class RecipeService {
             entity.setCategory(recipe.getCategory());
             entity.setDifficulty(recipe.getDifficulty());
             entity.setCost(recipe.getCost());
-            entity.getSteps().clear();
-            entity.getSteps().addAll(recipe.getSteps());
+            entity.setSteps(recipe.getSteps());
             entity.getIngredients().clear();
             entity.getIngredients().addAll(recipe.getIngredients());
             return repository.save(entity);

@@ -24,7 +24,7 @@ public class Recipe implements Serializable {
     private Integer servings;
     private Integer difficulty;
     private Integer cost;
-    private List<String> steps = new ArrayList<>();
+    private String steps;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -48,7 +48,7 @@ public class Recipe implements Serializable {
     public Recipe(Long id, String name, String imageLink,
                   String description, Integer prepTimeMinutes,
                   Integer servings, Integer difficulty, Integer cost,
-                  Category category, User author) {
+                  Category category, User author, String steps) {
         this.id = id;
         this.name = name;
         this.imageUrl = imageLink;
@@ -59,6 +59,7 @@ public class Recipe implements Serializable {
         this.author = author;
         this.difficulty = difficulty;
         this.cost = cost;
+        this.steps = steps;
     }
 
     public Long getId() {
@@ -117,7 +118,9 @@ public class Recipe implements Serializable {
 
     public void setCost(Integer cost) { this.cost = cost; }
 
-    public List<String> getSteps() { return steps; }
+    public void  setSteps(String steps){this.steps = steps; }
+
+    public String getSteps() { return steps; }
 
     public Category getCategory() {
         return category;
