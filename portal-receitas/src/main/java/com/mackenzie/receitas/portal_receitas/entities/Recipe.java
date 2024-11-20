@@ -140,6 +140,10 @@ public class Recipe implements Serializable {
 
     public Set<Ingredient> getIngredients() { return ingredients; }
 
+    public void addIngredients(List<Ingredient> ingredients) {
+        this.ingredients.addAll(ingredients);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
