@@ -78,7 +78,7 @@ public class RecipeController {
         return ResponseEntity.ok().body(service.findById(id));
     }
 
-    @Operation(summary = "Busca dados de receita por id da categoria", method = "GET")
+    @Operation(summary = "Busca dados de receita por nome de categoria", method = "GET")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
         @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
@@ -91,6 +91,13 @@ public class RecipeController {
         return ResponseEntity.ok().body(list);
     }
 
+    @Operation(summary = "Busca dados de receita por nome de ingrediente", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
+    })
     @GetMapping("/recipes/ingredient/{ingName}")
     public ResponseEntity<List<Recipe>> findByIngredient(@PathVariable String ingName) {
         List<Recipe> list = service.findByIngredient(ingName);
