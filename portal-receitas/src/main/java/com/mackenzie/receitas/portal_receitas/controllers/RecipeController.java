@@ -91,7 +91,7 @@ public class RecipeController {
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping("/recipes/ingredients/{ingName}")
+    @GetMapping("/recipes/ingredient/{ingName}")
     public ResponseEntity<List<Recipe>> findByIngredient(@PathVariable String ingName) {
         List<Recipe> list = service.findByIngredient(ingName);
         return ResponseEntity.ok().body(list);
