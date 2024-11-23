@@ -11,6 +11,8 @@ import java.util.List;
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
     List<Recipe> findByCategoryNameContainingIgnoreCase(String name);
-    List<Recipe> findByIngredientsNameContainingIgnoreCase(String name);
 
+    List<Recipe> findByNameContainingIgnoreCase(String name);
+
+    List<Recipe> findByIngredientsNameContainingIgnoreCase(String name);
 }

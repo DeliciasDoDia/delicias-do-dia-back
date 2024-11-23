@@ -4,7 +4,6 @@
 package com.mackenzie.receitas.portal_receitas.services;
 
 import com.mackenzie.receitas.portal_receitas.entities.Recipe;
-import com.mackenzie.receitas.portal_receitas.entities.User;
 import com.mackenzie.receitas.portal_receitas.exceptions.ResourceNotFoundException;
 import com.mackenzie.receitas.portal_receitas.repositories.RecipeRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -37,6 +36,10 @@ public class RecipeService {
 
     public List<Recipe> findByIngredient(String ingName) {
         return repository.findByIngredientsNameContainingIgnoreCase(ingName);
+    }
+
+    public List<Recipe> findByName(String name) {
+        return repository.findByNameContainingIgnoreCase(name);
     }
 
     public Recipe save(Recipe recipe) {

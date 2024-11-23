@@ -65,6 +65,7 @@ public class RecipeController {
             @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
             @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
     })
+
     // GET http://localhost:8080/api/recipes
     // GET http://localhost:8080/api/recipes?catName=nome
     @GetMapping("/recipes")
@@ -87,6 +88,19 @@ public class RecipeController {
     @GetMapping("/recipes/ingredient/{ingName}")
     public ResponseEntity<List<Recipe>> findByIngredient(@PathVariable String ingName) {
         List<Recipe> list = service.findByIngredient(ingName);
+        return ResponseEntity.ok().body(list);
+    }
+
+    @Operation(summary = "Busca dados de receita pelo nome dela", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
+    })
+    @GetMapping("/recipes/name/{name}")
+    public ResponseEntity<List<Recipe>> findByName(@PathVariable String name) {
+        List<Recipe> list = service.findByName(name);
         return ResponseEntity.ok().body(list);
     }
 
