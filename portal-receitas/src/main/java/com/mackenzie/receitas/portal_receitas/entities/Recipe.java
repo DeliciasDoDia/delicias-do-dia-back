@@ -19,6 +19,7 @@ public class Recipe implements Serializable {
     private Long id;
     private String name;
     private String imageUrl;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private Integer prepTimeMinutes;
     private Integer servings;
