@@ -67,13 +67,13 @@ public class TestConfig implements CommandLineRunner {
         ingredientRepository.saveAll(Arrays.asList(i1, i2, i3, i4, i5, i6, i7, i8));
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8, cat9, cat10, cat11));
 
-        Recipe r1 = new Recipe(null, "Frango com Curry", "imageLink",
-                "blablabla", 40, 4, 2, 3, cat2, u1, "t");
+        Recipe r1 = new Recipe(null, "Frango com Curry", "https://www.sabornamesa.com.br/media/k2/items/cache/78468ad5288d433009367eeff5a5f3b3_XL.jpg",
+                "blablabla", 40, 4, 2, 3, cat6, u1, "t");
 
-        Recipe r2 = new Recipe(null, "Molho pesto", "imageLink",
+        Recipe r2 = new Recipe(null, "Molho pesto", "https://static.itdg.com.br/images/1200-630/9585c32e32a16bd069b91ffb3d2f141f/346227-original.jpg",
                 "bla", 15, 2, 2, 3, cat8, u2, "step");
 
-        Recipe r3 = new Recipe(null, "Molho branco", "imageLink",
+        Recipe r3 = new Recipe(null, "Molho de queijo", "https://cdn0.tudoreceitas.com/pt/posts/9/9/5/molho_de_tres_queijos_2599_600.jpg",
                 "bla", 15, 2, 2, 4, cat8, u3, "step");
 
         Recipe r4 = new Recipe(null, "Bolo de Laranja", "https://p2.trrsf.com/image/fget/cf/1200/900/middle/images.terra.com/2023/05/02/bolo-laranja-ursdzhu7qmur.jpg",
