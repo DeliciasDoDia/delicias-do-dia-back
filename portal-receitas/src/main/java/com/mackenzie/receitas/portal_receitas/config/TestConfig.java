@@ -42,17 +42,17 @@ public class TestConfig implements CommandLineRunner {
         User u2 = new User(null, "Jorge", "jorge@gmail.com", "12345");
         User u3 = new User(null, "Robirso", "robirso@gmail.com", "12345");
 
-        Category cat1 = new Category(null, "Bolos e Tortas");
-        Category cat2 = new Category(null, "Carnes");
-        Category cat3 = new Category(null, "Massas");
-        Category cat4 = new Category(null, "Lanches");
-        Category cat5 = new Category(null, "Sobremesas");
-        Category cat6 = new Category(null, "Aves");
-        Category cat7 = new Category(null, "Peixes e Frutos do Mar");
-        Category cat8 = new Category(null, "Saladas e Molhos");
-        Category cat9 = new Category(null, "Sopas");
-        Category cat10 = new Category(null, "Bebidas");
-        Category cat11 = new Category(null, "Outros");
+        Category cat1 = new Category(null, "Bolos e Tortas", "https://drive.usercontent.google.com/download?id=189X_KFDLemwa45QpVupeOC6GhK7tSx22");
+        Category cat2 = new Category(null, "Carnes", "https://drive.usercontent.google.com/download?id=10kPp9AuVdoe2bUUODQvDpdAnGrcWg_Wb");
+        Category cat3 = new Category(null, "Massas", "https://drive.usercontent.google.com/download?id=1D_QnPJalC1TxyXEoQn3UXRmPDZouBU20");
+        Category cat4 = new Category(null, "Lanches", "https://drive.usercontent.google.com/download?id=1UnW6eOo3ynnM6SwL8uilEclK_XtkWR3w");
+        Category cat5 = new Category(null, "Sobremesas", "https://drive.usercontent.google.com/download?id=1i4srtUfZ0japhJxYCSCLrmL9NMuMw1RK");
+        Category cat6 = new Category(null, "Aves","https://drive.usercontent.google.com/download?id=1KiqNd28s8EZLKwGfIsKbh4T10p2frOkL" );
+        Category cat7 = new Category(null, "Peixes e Frutos do Mar","https://drive.usercontent.google.com/download?id=1EDw0Z96MDhDm-bJDsnMa1CQWhhY1w6Id");
+        Category cat8 = new Category(null, "Saladas e Molhos", "https://drive.usercontent.google.com/download?id=1N6HnTOvEBZ08G3cVd_rE5EUA2UZzePE8&export=view&authuser=0");
+        Category cat9 = new Category(null, "Sopas","https://drive.usercontent.google.com/download?id=1Q9NUD1p30bz8E0wABMJqOngEDBy1Wr82" );
+        Category cat10 = new Category(null, "Bebidas", "https://drive.usercontent.google.com/download?id=1F4yTuuWZ7ydsaWE1ud2q6Xg8K-jkjXdu");
+        Category cat11 = new Category(null, "Outros", "https://drive.usercontent.google.com/download?id=1uXiufBaSfZEpKN1ZtZhq6Hh6L4qNZrI3");
 
         Ingredient i1 = new Ingredient(null, "Sal");
         Ingredient i2 = new Ingredient(null, "Pimenta do reino");

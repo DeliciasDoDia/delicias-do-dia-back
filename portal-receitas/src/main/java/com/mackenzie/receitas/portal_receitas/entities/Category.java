@@ -21,6 +21,7 @@ public class Category implements Serializable {
     private Long id;
     @Column(nullable = false)
     private String name;
+    private String iconUrl;
 
     @JsonIgnore
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
@@ -29,9 +30,10 @@ public class Category implements Serializable {
     public Category() {
     }
 
-    public Category(Long id, String name) {
+    public Category(Long id, String name, String iconUrl) {
         this.id = id;
         this.name = name;
+        this.iconUrl = iconUrl;
     }
 
     public Long getId() {
@@ -49,6 +51,9 @@ public class Category implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getIconUrl() { return iconUrl; }
+    public void setIconUrl(String iconUrl) { this.iconUrl = iconUrl; }
 
     @Override
     public boolean equals(Object o) {
