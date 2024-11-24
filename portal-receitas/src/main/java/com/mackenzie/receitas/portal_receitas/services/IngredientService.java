@@ -28,4 +28,12 @@ public class IngredientService {
         Optional<Ingredient> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
+
+    public Ingredient findByName(String name) {
+        return repository.findByNameIgnoreCase(name);
+    }
+
+    public Ingredient save(Ingredient ingredient) {
+        return repository.save(ingredient);
+    }
 }
