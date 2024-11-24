@@ -78,6 +78,18 @@ public class RecipeController {
         return ResponseEntity.ok().body(list);
     }
 
+    // GET http://localhost:8080/api/recipes/user/2
+    // GET http://localhost:8080/api/recipes/user/2?catName=molho
+    @GetMapping("/recipes/user/{userId}")
+    public ResponseEntity<List<Recipe>> findByUserAndCategory(@RequestParam(required = false) String catName, @PathVariable long userId) {
+        if (catName == null) {
+            List<Recipe> list = service.findByAuthorId(userId);
+            return ResponseEntity.ok().body(list);
+        }
+        List<Recipe> list = service.findByAuthorAndCategory(userId, catName);
+        return ResponseEntity.ok().body(list);
+    }
+
     @Operation(summary = "Busca dados de receita por nome de ingrediente", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),

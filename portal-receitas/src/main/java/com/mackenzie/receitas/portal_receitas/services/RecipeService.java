@@ -34,6 +34,14 @@ public class RecipeService {
         return repository.findByCategoryNameContainingIgnoreCase(catName);
     }
 
+    public List<Recipe> findByAuthorAndCategory(long userId, String catName) {
+        return repository.findByAuthorIdAndCategoryNameContainingIgnoreCase(userId, catName);
+    }
+
+    public List<Recipe> findByAuthorId(long userId) {
+        return repository.findByAuthorId(userId);
+    }
+
     public List<Recipe> findByIngredient(String ingName) {
         return repository.findByIngredientsNameContainingIgnoreCase(ingName);
     }
@@ -41,6 +49,7 @@ public class RecipeService {
     public List<Recipe> findByName(String name) {
         return repository.findByNameContainingIgnoreCase(name);
     }
+
 
     public Recipe save(Recipe recipe) {
         return repository.save(recipe);

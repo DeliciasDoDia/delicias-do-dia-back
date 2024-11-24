@@ -33,6 +33,10 @@ public class UserService {
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
+    public User findByEmailAndPassword(String email, String password) {
+        return repository.findByEmailAndPassword(email, password);
+    }
+
     public User save(User user) {
         return repository.save(user);
     }

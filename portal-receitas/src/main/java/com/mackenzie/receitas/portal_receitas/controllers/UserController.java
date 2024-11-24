@@ -77,6 +77,11 @@ public class UserController {
         return ResponseEntity.ok().body(service.findById(id));
     }
 
+    @GetMapping("/users/{email}/{password}")
+    public ResponseEntity<User> findByEmailAndPassword(@PathVariable String email, @PathVariable String password) {
+        return ResponseEntity.ok().body(service.findByEmailAndPassword(email, password));
+    }
+
     // UPDATE
     @Operation(summary = "Atualiza os dados do usuário por id", method = "PUT")
     @ApiResponses(value = {
