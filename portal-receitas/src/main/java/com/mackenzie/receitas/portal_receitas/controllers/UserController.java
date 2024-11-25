@@ -77,6 +77,13 @@ public class UserController {
         return ResponseEntity.ok().body(service.findById(id));
     }
 
+    @Operation(summary = "Busca dados de usuário por email e password", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
+    })
     @GetMapping("/users/{email}/{password}")
     public ResponseEntity<User> findByEmailAndPassword(@PathVariable String email, @PathVariable String password) {
         return ResponseEntity.ok().body(service.findByEmailAndPassword(email, password));

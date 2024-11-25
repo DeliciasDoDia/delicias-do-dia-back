@@ -26,6 +26,7 @@ public class Recipe implements Serializable {
     private Integer servings;
     private Integer difficulty;
     private Integer cost;
+    @Column(columnDefinition = "TEXT")
     private String steps;
 
     @ManyToOne

@@ -31,6 +31,13 @@ public class IngredientController {
     }
 
     // CREATE
+    @Operation(summary = "Realiza o cadastro de ingredientes", method = "POST")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Cadastro de ingredientes realizado com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao realizar o cadastro de ingrediente"),
+    })
     @PostMapping("/ingredients")
     public ResponseEntity<Ingredient> create(@RequestBody Ingredient ingredient) {
         ingredient = service.save(ingredient);
@@ -65,6 +72,13 @@ public class IngredientController {
         return ResponseEntity.ok().body(service.findById(id));
     }
 
+    @Operation(summary = "Busca dados dos ingredientes pelo nome", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
+    })
     @GetMapping("/ingredients/name/{name}")
     public ResponseEntity<Ingredient> findByName(@PathVariable String name) {
         return ResponseEntity.ok().body(service.findByName(name));

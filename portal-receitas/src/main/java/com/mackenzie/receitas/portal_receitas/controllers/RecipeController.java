@@ -58,6 +58,8 @@ public class RecipeController {
         return ResponseEntity.ok().body(service.findById(id));
     }
 
+    // GET http://localhost:8080/api/recipes
+    // GET http://localhost:8080/api/recipes?catName=nome
     @Operation(summary = "Busca dados de receita por nome de categoria ou busca todas as receitas se não houver o nome da categoria", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
@@ -65,9 +67,6 @@ public class RecipeController {
             @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
             @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
     })
-
-    // GET http://localhost:8080/api/recipes
-    // GET http://localhost:8080/api/recipes?catName=nome
     @GetMapping("/recipes")
     public ResponseEntity<List<Recipe>> findByCategory(@RequestParam(required = false) String catName) {
         if (catName == null) {
@@ -80,6 +79,13 @@ public class RecipeController {
 
     // GET http://localhost:8080/api/recipes/user/2
     // GET http://localhost:8080/api/recipes/user/2?catName=molho
+    @Operation(summary = "Busca dados de receita por ID de usuário", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválida"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
+    })
     @GetMapping("/recipes/user/{userId}")
     public ResponseEntity<List<Recipe>> findByUserAndCategory(@RequestParam(required = false) String catName, @PathVariable long userId) {
         if (catName == null) {
