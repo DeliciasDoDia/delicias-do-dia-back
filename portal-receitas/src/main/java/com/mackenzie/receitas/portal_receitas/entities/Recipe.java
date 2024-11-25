@@ -18,6 +18,7 @@ public class Recipe implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(columnDefinition = "TEXT")
     private String imageUrl;
     @Column(columnDefinition = "TEXT")
     private String description;
