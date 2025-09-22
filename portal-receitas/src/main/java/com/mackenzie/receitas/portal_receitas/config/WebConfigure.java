@@ -12,7 +12,7 @@ public class WebConfigure implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
-                .allowedOriginPatterns("*") // permite todas, compatível com credentials
+                .allowedOrigins("http://ec2-98-85-227-74.compute-1.amazonaws.com:8080", "http://98.85.227.74:8080")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true);
