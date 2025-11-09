@@ -20,7 +20,7 @@ import com.mackenzie.receitas.portal_receitas.repositories.RecipeRepository;
 import com.mackenzie.receitas.portal_receitas.repositories.UserRepository;
 
 @Configuration
-@Profile("test")
+@Profile({"test", "prod"})
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
