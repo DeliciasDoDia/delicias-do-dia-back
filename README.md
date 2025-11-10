@@ -25,7 +25,7 @@ A arquitetura do sistema foi desenvolvida utilizando serviços da AWS com o obje
 |--------|---------|-----------|
 | Backend | Amazon EC2 (container Docker com Spring Boot) | Executa a API REST responsável pelo CRUD de receitas e usuários. Processa as requisições recebidas pelo API Gateway e se comunica com o banco de dados RDS. |
 | Banco   | Amazon RDS (MySQL)             | Armazena as informações de receitas e usuários. Está configurado em uma subnet privada, sem acesso direto à internet, garantindo segurança e isolamento. |
-| Gateway | Amazon API Gateway      | Atua como ponto de entrada da aplicação. Roteia as requisições HTTP: as rotas `/api` são direcionadas ao back-end (ECS) e a rota `/report` é processada pela função Lambda. |
+| Gateway | Amazon API Gateway      | Atua como ponto de entrada da aplicação. Roteia as requisições HTTP: as rotas `/api` são direcionadas ao back-end (EC2) e a rota `/report` é processada pela função Lambda. |
 | Função  | AWS Lambda              | Função responsável por consumir a própria API via HTTP e gerar relatórios estatísticos em formato JSON, sem acesso direto ao banco de dados. |
 
 ## 3. Como rodar localmente
