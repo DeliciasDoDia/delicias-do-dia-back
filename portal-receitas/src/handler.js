@@ -1,6 +1,6 @@
 export const handler = async (event) => {
   try {
-    const backendUrl = "https://rdo5w5laxh.execute-api.us-east-1.amazonaws.com";
+    const backendUrl = "https://rdo5w5laxh.execute-api.us-east-1.amazonaws.com/prod/report";
 
     console.log("Chamando backend:", backendUrl);
 
